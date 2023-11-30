@@ -41,7 +41,6 @@ flatpickr(date, {
                 refs.minute.textContent = convertMs(realTimeDifference).minutes;
                 refs.hour.textContent = convertMs(realTimeDifference).hours;
                 refs.second.textContent = convertMs(realTimeDifference).seconds;
-                console.log(futureTime);
             }, 1000);
         }
         else { 
