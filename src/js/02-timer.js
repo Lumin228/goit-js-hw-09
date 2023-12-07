@@ -24,6 +24,7 @@ flatpickr(date, {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
+        if(nowDate.getTime() - selectedDates[0].getTime() !== 0)
         if(nowDate.getTime() <= selectedDates[0].getTime())
        { refs.button.disabled = false;
         clearInterval(intervalID);
@@ -67,8 +68,8 @@ flatpickr(date, {
 // console.log(newDate)
 
 function convertMs(ms) {
-    // Number of milliseconds per unit of time
-    const second = 1000;
+    if(ms >= 0)
+   { const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
@@ -82,7 +83,18 @@ function convertMs(ms) {
     // Remaining seconds
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
+    return { days, hours, minutes, seconds };}
+   else {
+    const days = 0;
+    // Remaining hours
+    const hours = 0;
+    // Remaining minutes
+    const minutes = 0;
+    // Remaining seconds
+    const seconds = 0;
+
     return { days, hours, minutes, seconds };
+   }
   }
 
 
