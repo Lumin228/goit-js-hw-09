@@ -85,14 +85,7 @@ function convertMs(ms) {
   
     return { days, hours, minutes, seconds };}
    else {
-    const days = 0;
-    // Remaining hours
-    const hours = 0;
-    // Remaining minutes
-    const minutes = 0;
-    // Remaining seconds
-    const seconds = 0;
-
+    clearInterval(intervalID)
     return { days, hours, minutes, seconds };
    }
   }
