@@ -58,8 +58,7 @@ flatpickr(date, {
     },
 });
 
-// Вызов clearInterval() теперь вне блока if
-// clearInterval(intervalID);
+
 
 
 
@@ -68,13 +67,12 @@ flatpickr(date, {
 // console.log(newDate)
 
 function convertMs(ms) {
-    if(ms >= 0)
-   { const second = 1000;
+    const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
-  
-    // Remaining days
+  if(ms >= 0)
+    {// Remaining days
     const days = Math.floor(ms / day);
     // Remaining hours
     const hours = Math.floor((ms % day) / hour);
@@ -84,10 +82,17 @@ function convertMs(ms) {
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
     return { days, hours, minutes, seconds };}
-   else {
-    clearInterval(intervalID)
+    else{
+        const days = 0;
+    // Remaining hours
+    const hours = 0;
+    // Remaining minutes
+    const minutes = 0;
+    // Remaining seconds
+    const seconds = 0;
     return { days, hours, minutes, seconds };
-   }
+    }
+  
   }
 
 
